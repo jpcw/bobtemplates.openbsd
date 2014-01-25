@@ -20,7 +20,7 @@ def within_intervall(str_value, name, lower_bound=1, upper_bound=255):
         if value not in range(lower_bound, upper_bound + 1):
             raise ValidationError("{0} Acceptable values for {1} are from {2} to {3}".format(answer, name, lower_bound, upper_bound))
 
-    except ValidationError, e:
+    except ValidationError as e:
         raise(e)
 
     except:
@@ -62,7 +62,7 @@ def post_ask_q_carp_iface_cidr(configurator, question, answer):
             if net_vars['ip'] == net_vars['broadcast']:
                 raise ValidationError("'{0}': oO you provided a broadcast ip within not in [/32, /128, /31, /127]".format(answer))
 
-    except ValidationError, e:
+    except ValidationError as e:
         raise(e)
 
     except:
