@@ -48,7 +48,8 @@ bobtemplates.openbsd is continuously
 
 + coverage tracked on coveralls.io |coveralls|_.
 
-.. |travisstatus| image:: https://api.travis-ci.org/jpcw/bobtemplates.openbsd.png
+
+.. |travisstatus| image:: https://api.travis-ci.org/jpcw/bobtemplates.openbsd.pnga?branch=master
 .. _travisstatus:  http://travis-ci.org/jpcw/bobtemplates.openbsd
 
 
