@@ -91,7 +91,7 @@ def post_ask_q_carp_iface_vlan(configurator, question, answer):
     """Check vlan answer."""
     answer = answer.strip()
     if answer.isdigit():
-        if answer != u'0':
+        if answer != '0':
             return within_intervall(answer, 'vlan', 1, 4094)
         else:
             return False
