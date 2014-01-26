@@ -1,2 +1,2 @@
-git+git@github.com:jpcw/mr.bob.git
-git+git@github.com:jpcw/bobplugins.jpcw.git
+git+git@github.com:jpcw/mr.bob.git#egg=mr.bob
+git+git@github.com:jpcw/bobplugins.jpcw.git#egg=bobplugins.jpcw
