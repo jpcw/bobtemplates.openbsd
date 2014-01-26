@@ -1,3 +1,3 @@
 -e git+git@github.com:jpcw/mr.bob.git#egg=mr.bob
 -e git+git@github.com:jpcw/bobplugins.jpcw.git#egg=bobplugins.jpcw
--e git+git@github.com:jpcw/bobtemplates.openbsd.git#egg=bobtemplates.openbsd
+-e .
