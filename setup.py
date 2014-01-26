@@ -22,7 +22,8 @@ desc_files = (('README.rst',), ('docs', 'CHANGES.rst'),
 
 long_description = '\n\n'.join([read_file(*pathes) for pathes in desc_files])
 
-install_requires = ['setuptools', 'six>=1.2.0', 'mr.bob', 'bobplugins.jpcw', 'IPy']
+#install_requires = ['setuptools', 'six>=1.2.0', 'mr.bob', 'bobplugins.jpcw', 'IPy']
+install_requires = ['setuptools']
 
 
 setup(name='bobtemplates.openbsd',
