@@ -7,7 +7,6 @@
 __docformat__ = 'restructuredtext en'
 
 
-#import os
 from IPy import IP
 from mrbob.bobexceptions import ValidationError
 
@@ -15,15 +14,13 @@ from mrbob.bobexceptions import ValidationError
 def within_intervall(str_value, name, lower_bound=1, upper_bound=255):
     """Check if int(answer) withoin intervall."""
     answer = str_value.strip()
-    try:
+
+    if answer.isdigit():
         value = int(answer)
         if value not in range(lower_bound, upper_bound + 1):
             raise ValidationError("{0} Acceptable values for {1} are from {2} to {3}".format(answer, name, lower_bound, upper_bound))
 
-    except ValidationError as e:
-        raise(e)
-
-    except:
+    else:
         raise ValidationError("{0} is not a valid number".format(answer))
 
     return answer
@@ -74,7 +71,10 @@ def post_ask_q_carp_iface_cidr(configurator, question, answer):
 
 def post_ask_q_carp_iface_vhid(configurator, question, answer):
     """Check vhid answer."""
-    return within_intervall(answer, 'vhid')
+    vhid = within_intervall(answer, 'vhid')
+    [q for q in configurator.questions if q.name ==
+            'carp_iface.vlan'][0].default = vhid
+    return vhid
 
 
 def post_ask_q_carp_iface_advskew(configurator, question, answer):
@@ -87,15 +87,21 @@ def post_ask_q_carp_iface_description(configurator, question, answer):
     return answer.strip()[:48]
 
 
+def post_ask_q_carp_iface_vlan(configurator, question, answer):
+    """Check vlan answer."""
+    answer = answer.strip()
+    if answer.isdigit():
+        if answer != u'0':
+            return within_intervall(answer, 'vlan', 1, 4094)
+        else:
+            return False
+
+
 def carp_iface_pre_render(configurator):
     """pre render stuff."""
-#    other_vars = {'year': date.today().year}
-#    configurator.variables.update(other_vars)
 
 
 def carp_iface_post_render(configurator):
     """post render stuff."""
-#    clean_gpl(configurator)
-#
 
 # vim:set et sts=4 ts=4 tw=80:
