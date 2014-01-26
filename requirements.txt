@@ -1,2 +1,2 @@
-git+https://github.com:jpcw/mr.bob.git#egg=mr.bob
-git+https://github.com:jpcw/bobplugins.jpcw.git#egg=bobplugins.jpcw
+-e git+https://github.com:jpcw/mr.bob.git#egg=mr.bob
+-e git+https://github.com:jpcw/bobplugins.jpcw.git#egg=bobplugins.jpcw
