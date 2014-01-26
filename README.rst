@@ -7,8 +7,7 @@ Templates for OpenBSD stuff
 
 **mr.bob** templates : http://mrbob.readthedocs.org/en/latest/
 
-+ carp_iface : provide carp ifaces master and slave
-+ carp_vlan : provide carp ifaces based on vlan master and slave
++ carp_iface : provide carp ifaces master and slave which muste be based on a vlan interface
 
 
 Installation
@@ -33,10 +32,6 @@ Templates
 
 carp_iface
 ++++++++++++
-
-
-carp_vlan
-++++++++++
 
 
 Tests

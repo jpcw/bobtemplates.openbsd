@@ -21,7 +21,7 @@ class DummyConfigurator(object):
                  quiet=False):
         self.defaults = defaults or {}
         self.bobconfig = bobconfig or {}
-        self.variables = variables or {}
+        self.variables = variables or {'physdev': 'em0'}
         self.quiet = quiet
         self.templateconfig = templateconfig or {}
 

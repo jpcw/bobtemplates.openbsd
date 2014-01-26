@@ -50,7 +50,7 @@ def post_ask_q_carp_iface_cidr(configurator, question, answer):
             # we accept network ip only with /32 or /128
             if is_a_network_address(answer):
                 raise ValidationError("'{0}': oO you provided a network address, within not in [/32 or /128] !".format(answer))
-        net_vars['net'] = str(subnet.net())
+        net_vars['subnet'] = '%s/%s' % (str(subnet.net()), netmask)
         net_vars['netmask'] = str(subnet.netmask())
         net_vars['broadcast'] = str(subnet.broadcast())
         net_vars['ip'] = ip
@@ -73,7 +73,7 @@ def post_ask_q_carp_iface_vhid(configurator, question, answer):
     """Check vhid answer."""
     vhid = within_intervall(answer, 'vhid')
     [q for q in configurator.questions if q.name ==
-            'carp_iface.vlan'][0].default = vhid
+            'vlan'][0].default = vhid
     return vhid
 
 
@@ -92,8 +92,16 @@ def post_ask_q_carp_iface_vlan(configurator, question, answer):
     answer = answer.strip()
     if answer.isdigit():
         if answer != '0':
-            return within_intervall(answer, 'vlan', 1, 4094)
+            vlanid = within_intervall(answer, 'vlan', 1, 4094)
+            if vlanid:
+                configurator.variables['carpdev'] = 'vlan%s' % vlanid
+                configurator.variables['vlandev'] = configurator.variables['physdev']
+                configurator.variables['rdr_vlan'] = True
+                return vlanid
+
         else:
+            configurator.variables['carpdev'] = configurator.variables['physdev']
+            configurator.variables['rdr_vlan'] = False
             return False
 
 
