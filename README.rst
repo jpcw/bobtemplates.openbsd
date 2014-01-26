@@ -9,30 +9,10 @@ Templates for OpenBSD stuff
 
 + carp_iface : provide carp ifaces master and slave which muste be based on a vlan interface
 
+Documentation
+=============
 
-Installation
----------------
-
-::
- 
- easy_install bobtemplates.openbsd
-
-or simply add bobtemplates.openbsd to your eggs zc.buildout section 
-
-or with pip
-
-:: 
- 
- pip install bobtemplates.openbsd
-
-
-Templates
-------------
-
-
-carp_iface
-++++++++++++
-
+http://bobtemplatesopenbsd.readthedocs.org/
 
 Tests
 =====
