@@ -100,7 +100,7 @@ class Post_ask_q_carp_iface_vhidTest(TestCase):
         import bobtemplates.openbsd
         self.fs_templates = os.path.abspath(
             os.path.join(os.path.dirname(bobtemplates.openbsd.__file__),
-                'carp_iface'))
+                         'carp_iface'))
 
     def call_FUT(self, answer, configurator=None, question=None):
         from mrbob.configurator import Configurator

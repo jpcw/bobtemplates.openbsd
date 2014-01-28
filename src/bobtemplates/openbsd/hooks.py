@@ -73,7 +73,7 @@ def post_ask_q_carp_iface_vhid(configurator, question, answer):
     """Check vhid answer."""
     vhid = within_intervall(answer, 'vhid')
     [q for q in configurator.questions if q.name ==
-            'vlan'][0].default = vhid
+     'vlan'][0].default = vhid
     return vhid
 
 
